@@ -72,8 +72,12 @@ private:
     Model4DType type;
 
     std::vector<std::vector<GLuint>> edges;
+    std::vector<std::vector<GLuint>> edges3D;
     std::vector<glm::vec4> defVertices;
     std::vector<std::vector<int>> faces;
+
+    std::vector<std::vector<GLuint>> cells; // —писок 3D-€чеек (граней), кажда€ €чейка Ч набор индексов вершин
+    std::map<std::pair<GLuint, GLuint>, std::set<std::pair<GLuint, GLuint>>> adjacentEdges;
 
     std::unordered_map<glm::vec3, int, Vec3Hash, Vec3Equal> intersectionMap;
     std::unordered_map<int, std::unordered_set<int>> adjacency;
@@ -85,6 +89,8 @@ private:
     
     void LoadModel4DData();
     bool ArePointsConnectedByEdge(const glm::vec3& point1, const glm::vec3& point2);
+    std::vector<std::pair<GLuint, GLuint>> GetCellEdges(const std::vector<GLuint>& cell);
+    void ComputeAdjacentEdges();
 };
 
 #endif

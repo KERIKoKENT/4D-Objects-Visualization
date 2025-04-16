@@ -106,7 +106,6 @@ void Model::Rotate(float xy, float xz, float yz, double dt) {
         i += 6;
     }
 
-
     InitBuffers();
 }
 

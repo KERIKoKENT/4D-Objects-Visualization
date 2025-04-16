@@ -28,7 +28,8 @@ int main() {
 
         deltaTime = renderer.GetDeltaTime();
 
-        tesseract->Rotate(0.1f, 0.1f, 0.1f, deltaTime);
+        //tesseract->Rotate(0.1f, 0.1f, 0.1f, deltaTime);
+		tesseract->Rotate4D(0.1f, 0.1f, 0.1f, deltaTime);
 
         renderer.GetCamera()->ProcessCursor(renderer.GetWindow());
         renderer.DrawModels();
